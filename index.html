@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Famalicão Cash</title>
+  <meta name="title" content="Fcash ">
+  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
+
+  <!-- 
+    - icone
+  -->
+  <link rel="shortcut icon" href="./assets/images/imgs/logo01.png">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - pré-carregar imagens
+  -->
+  <link rel="preload" as="image" href="./assets/images/imgs/famalicao-cash-home.jpg">
+  <link rel="preload" as="image" href="./assets/images/imgs/Design sem nome (4).png">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+
+</head>
+
+<body id="geral-1" style="background-color: none; overflow-y: auto;">
+  
+  <body class="popup-princ" style="z-index: 1000;">
+      
+    <div id="sla" style="background-color: none;">
+      <main id="main-01" style="background-color: none;">
+        <div id="popup001" style="background-color: none; ">
+          <div class="popup1" id="popup1"  ></div>
+
+          <!--**********************************************-->
+
+          <div class="popup" id="popup" style=" z-index: 1000;left: 50%; top: 50%; transform: translate(-50%, -50%); background-color: none; " onclick="this.parentNode.remove();">
+              <img src="./assets/images/imgs/rabiscos/warning.png" alt="warning">
+      
+              <h2 class="title">Qual a tua idade?</h2>
+      
+              <p class="desc">Tens.</p>
+              <div class="buttons1" >
+                <button class="close-popup-button" type="submit" onclick="handlePopup(false);this.parentNode.remove(); this.disabled = true;" id="botaoMais18" style="color:  white; ">
+                  +18
+                </button>
+                
+                <button class="open-popup-button" type="submit" onclick="handlePopup(false); this.parentNode.remove();" id="botaoMenos18" style="color:  white; ">
+                  -18
+                </button>
+                
+              </div>
+              
+          </div>
+      
+        </div>
+    
+        <style>
+          .container1 {
+          /*position: fixed;*/
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;;
+          position: relative;
+      } 
+      
+      .close-popup-button {
+        align-items: center;
+        background: rgb(10, 196, 10);
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        margin: 0 5px 28px 20px;
+        width: 100%;
+      }
+      .open-popup-button {
+        align-items: center;
+        background: rgb(192, 11, 11);
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        height: 50px;
+        justify-content: center;
+        margin: 0 5px 28px 20px;
+        width: 100%;
+        }
+      .close-popup-button,
+      .open-popup-button {
+          display: inline-block;
+          margin-right: 10px; /* Espaçamento entre os botões */
+      }
+      .popup-button:hover,
+      .popup .close-popup-button:hover {
+          opacity: .8;
+          
+      }
+      .popup1 .close-popup-button:hover {
+          opacity: .8;
+          background-color: none;
+      }
+      .popup-button:active,
+      .popup .close-popup-button:active {
+          transform: scale(.8);
+      }
+      .popup-button:active,
+      .popup1 .close-popup-button:active {
+          transform: scale(.8);
+      }
+      .popup {
+        position: absolute;
+          position: absolute;
+          background-color: #3b3b3bc5;
+          padding: 30px 50px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          width: 400px;
+          box-sizing: border-box;
+          transition: all .4s;
+          z-index: -1;
+          transform: scale(.4);
+          opacity: 0;
+          z-index: 999;
+      }
+      .popup1 {
+        position: absolute;
+          position: absolute;
+          backdrop-filter: blur(10px); /* blur the background by 10px */
+          background-color: rgba(73, 73, 73, 0.404); /* white background with 50% opacity */
+          padding: 30px 50px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          width: 8000vw;
+          height: 6000vh;
+          box-sizing: border-box;
+          transition: all .4s;
+          z-index: -1;
+          transform: scale(.0);
+          opacity: 0;
+          left: -500px;
+          z-index: 999;
+      }
+      
+      .popup.opened {
+          z-index: 999;
+          transform: scale(1);
+          opacity: 1;
+          
+      }
+      .popup1.opened {
+          z-index: 999;
+          transform: scale(1);
+          opacity: 1;
+          
+      }
+      
+      .popup img {
+          width: 100px;
+          margin:10px 100px 10px 100px;
+      }
+      .popup1 img {
+          width: 100px;
+          margin:10px 100px 10px 100px;
+      }
+      
+      .popup h2.title {
+          color: #ee404c;
+      }
+      
+      .popup p.desc {
+          color: #FFF;
+      }
+      
+      .buttons1 {
+        display: flex;
+        margin-top: 8px;
+        width: 100%;
+      }
+
+
+
+      
+      
+        </style>
+      
+        <script>
+          const popup = document.getElementById('popup');
+          const popup1 = document.getElementById('popup1');
+          const botaoMais18 = document.getElementById('botaoMais18');
+
+          // Verificar se o usuário já clicou no botão antes
+          let alreadyClicked = sessionStorage.getItem('alreadyClicked');
+        
+          function handlePopup(open) {
+            if (alreadyClicked) return; // Se o usuário já clicou, não abrir o popup novamente
+            popup.classList[open ? 'add' : 'remove']('opened');
+            popup1.classList[open ? 'add' : 'remove']('opened');
+            document.body.style.overflow = open ? 'hidden' : 'auto';
+            blockClicksOutsidePopup(open);
+            blockClicksOutsidePopup(open);
+            window.location.href = '#top';
+            window.location.href = 'index.html#top';
+            window.scrollTo(0, 0);
+            
+          }
+          window.addEventListener('load', function() {
+            handlePopup(true);
+            window.location.href = '#top';
+            window.location.href = 'index.html#top';
+            window.scrollTo(0, 0);~
+            sessionStorage.setItem('alreadyClicked', true);
+            
+          });
+          window.onload = function() {
+          document.getElementById('meuPopup').style.display = 'block';
+          }    
+          window.addEventListener('load', function() {
+          
+          });
+
+          
+                    
+      
+        </script>         
+        </div>    
+    </div> 
+
+  </body> 
+       
+  <body id="top">
+
+    <!-- 
+      - #PRELOADER
+    -->
+  
+    <div class="preload" data-preaload>
+      <div class="circle"></div>
+      <p class="text">Famalicão <br>Cash</p>
+    </div>
+  
+  
+  
+  
+  
+    <!-- 
+      - #TOP BAR
+    -->
+  
+    <div class="topbar" style="background-color: #0000005d;" id="topbar">
+      <div class="container"  >
+  
+        <address class="topbar-item" >
+          <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          </div>
+
+          <a href="https://maps.app.goo.gl/72GEAhenFixNJsKE6" class="topbar-item link">
+            <span class="span">
+              Famalicãocash - Comércio De Bebidas, Lda
+            </span>
+          </a>
+  
+          
+        </address>
+  
+        <div class="separator"></div>
+  
+        <div class="topbar-item item-2">
+          <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span">Segunda a Sexta: 8.30/13.00 e das 14.30/19.00 Sábado: 09:00/13:00</span>
+        </div>
+  
+        <a href="tel:+11234567890" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span" style="font-size: 12px;">+252 313 479 ( chamada para a rede fixa nacional) </span>
+        </a>
+  
+        <div class="separator"></div>
+  
+        <a href="mailto:booking@restaurant.com" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span " >geral@famalicaocash.com</span>
+        </a>
+  
+      </div>
+    </div>
+  
+  
+  
+  
+  
+    <!-- 
+      - #HEADER
+    -->
+  
+    <header class="header" data-header  >
+      <div class="container" data-nav-wrapper >
+  
+        <a href="#" class="logo">
+          <img src="./assets/images/imgs/Logo.png" width="218" height="50" alt="Fcash - Home">
+        </a>
+        
+        <nav class="navbar" data-navbar id=" navbar">
+          
+          <button class="close-btn" aria-label="close menu" data-nav-toggler onclick="handleClose(true) ">
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+
+          </button>
+          
+          <a href="#" class="logo">
+            <img src="./assets/images/imgs/Logo.png" width="218" height="50" alt="Fcash - Home">
+          </a>
+  
+          <ul class="navbar-list">
+  
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">Inicio</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="#novidades" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">novidades</span>
+              </a>
+            </li>
+  
+            <li class="navbar-item">
+              <a href="#about" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">Sobre Nós</span>
+              </a>
+            </li>
+  
+            <li class="navbar-item">
+              <a href="#provas" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">Sala de Provas</span>
+              </a>
+            </li>
+  
+            
+            <li class="navbar-item">
+              <a href="#menu" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">Colaboradores</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="#localizaçao" class="navbar-link hover-underline">
+                <div class="separator"></div>
+  
+                <span class="span">Localizações</span>
+              </a>
+            </li>
+  
+            <li class="navbar-item">
+  
+              <a href="#produtores" class="navbar-link hover-underline">
+                
+                <div class="separator">
+                  
+                </div>
+  
+                <span class="span">Produtores</span>
+              </a>
+            </li>
+  
+          </ul>
+  
+          <div class="text-center">
+            
+  
+            <address class="body-4">
+              Rua da industria nº207 <br>
+              4760-003 Gavião <br>
+              V.N.Famalicão
+            </address>
+  
+            <p class="body-4 navbar-text">Segunda a Sexta: 8.30/13.00 e das 14.30/19.00 <br> 
+              Sábado: 09:00/13:00</p>
+  
+            <a href="geral@famalicaocash.com" class="body-4 sidebar-link">geral@famalicaocash.com</a>
+  
+            <div class="separator"></div>
+  
+            <p class="contact-label">Contacto</p>
+  
+            <a href="tel:+252313479" class="body-1 contact-number hover-underline" style="font-size: 18px;">
+              +252 313 479(chamada para a rede fixa nacional)
+            </a>
+          </div>
+  
+        </nav>
+  
+       
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+  
+        <div class="overlay" data-nav-toggler data-overlay></div>
+  
+      </div>
+    </header>
+  
+  
+  
+  
+  
+    <main>
+      <article>
+  
+        <!-- 
+          - #imagens top
+        -->
+        <section class="hero text-center" aria-label="home" id="home">
+          <ul class="hero-slider" data-hero-slider>
+            <li class="slider-item active" data-hero-slider-item>
+              <div class="slider-bg" id="img1-container">
+                <img src="./assets/images/uva01-escuro.png" alt="" class="hero-image" id="img1">
+              </div>
+            </li>
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg" id="img2-container">
+                <img src="./assets/images/uva01-escuro.png" alt="" class="hero-image" id="img2">
+              </div>
+            </li>
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg" id="img3-container">
+                <img src="./assets/images/uva01-escuro.png" alt="" class="hero-image" id="img3">
+              </div>
+            </li>
+            <li class="slider-item" data-hero-slider-item>
+              <div class="slider-bg" id="img4-container">
+                <img src="./assets/images/uva01-escuro.png" alt="" class="hero-image" id="img4">
+              </div>
+            </li>
+
+            <!--... -->
+            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+              <ion-icon name="chevron-back"></ion-icon>
+            </button>
+    
+            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+              <ion-icon name="chevron-forward"></ion-icon>
+            </button>
+    
+            <a href="https://loja.winecash.pt" class="hero-btn has-after"  >
+              <img src="./assets/images/vinho-icon.png" width="48" height="48" alt="booking icon">
+    
+              <span class="label-2 text-center span">Loja Online</span>
+            </a>
+          </ul>
+        </section>
+        
+        <style>
+          /* Estilo padrão para telas maiores que 575px */
+         .hero-image {
+            width: 100%;
+            height: 100%; /* ajuste o tamanho da imagem como necessário */
+          }
+        
+          /* Estilo para telas menores que 575px */
+          @media only screen and (max-width: 575px) {
+            #img1 {
+              display: none; /* esconde a imagem original */
+            }
+            #img1-container {
+              background-image: url('./assets/imagens/imgs-div/sobre-nos01.jpg');
+              background-size: cover;
+              background-position: center;
+              height: 100vh; /* ajusta a altura da imagem para a altura da tela */
+              width: 100%; /* ajusta a largura da imagem para a largura da tela */
+              object-fit: cover; /* redimensiona a imagem para caber na tela */
+            }
+        
+            #img2 {
+              display: none; /* esconde a imagem original */
+            }
+            #img2-container {
+              background-image: url('./assets/imagens/imgs-div/sobre-nos02.jpeg');
+              background-size: cover;
+              background-position: center;
+              height: 100vh; /* ajusta a altura da imagem para a altura da tela */
+              width: 100%; /* ajusta a largura da imagem para a largura da tela */
+              object-fit: cover; /* redimensiona a imagem para caber na tela */
+            }
+        
+            #img3 {
+              display: none; /* esconde a imagem original */
+            }
+            #img3-container {
+              background-image: url('./assets/imagens/imgs-div/sobre-nos01.jpg');
+              background-size: cover;
+              background-position: center;
+              height: 100vh; /* ajusta a altura da imagem para a altura da tela */
+              width: 100%; /* ajusta a largura da imagem para a largura da tela */
+              object-fit: cover; /* redimensiona a imagem para caber na tela */
+            }
+        
+            #img4 {
+              display: none; /* esconde a imagem original */
+            }
+            #img4-container {
+              background-image: url('./assets/imagens/imgs-div/sobre-nos02.jpeg');
+              background-size: cover;
+              background-position: center;
+              height: 100vh; /* ajusta a altura da imagem para a altura da tela */
+              width: 100%; /* ajusta a largura da imagem para a largura da tela */
+              object-fit: cover; /* redimensiona a imagem para caber na tela */
+            }
+          }
+        
+          /* Estilo para telas maiores que 575px */
+          @media only screen and (min-width: 576px) {
+            #img1, #img2, #img3, #img4 {
+              display: block; /* mostra as imagens originais */
+            }
+            #img1-container, #img2-container, #img3-container, #img4-container {
+              background-image: none; /* remove a imagem tele.png */
+            }
+          }
+        </style>
+  
+       
+  
+  
+  
+  
+        <!-- 
+          - #SERVICE
+          categoria
+        -->
+  
+        <section class="section service bg-black-10 text-center" aria-label="service" id="novidades" ">
+          <div class="container">
+  
+            <p class="section-subtitle label-2" style="color: white;">Categorias</p>
+  
+            <h2 class="headline-1 section-title" >Novidades </h2>
+  
+            <p class="section-text">
+              Os melhores do mercado
+            </p>
+  
+            <ul class="grid-list">
+  
+              <li>
+                <div class="service-card">
+  
+                  <a href="#" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                      <img src="./assets/imagens/imgs-div/Novidades01.png" width="285" height="336" loading="lazy" alt="Breakfast"
+                        class="img-cover">
+                    </figure>
+                  </a>
+  
+                  <div class="card-content">
+  
+                    <h3 class="title-4 card-title">
+                      <a href="#">Vinhos</a>
+                    </h3>
+  
+                    <a href="#" class="btn-text hover-underline label-2">Ver Mais</a>
+  
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="service-card">
+  
+                  <a href="#" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                      <img src="./assets/imagens/imgs-div/Novidades02.png" width="285" height="336" loading="lazy" alt="Appetizers"
+                        class="img-cover">
+                    </figure>
+                  </a>
+  
+                  <div class="card-content">
+  
+                    <h3 class="title-4 card-title">
+                      <a href="#">Espumantes <br> Champagne</a>
+                    </h3>
+  
+                    <a href="#" class="btn-text hover-underline label-2">Ver Mais</a>
+  
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="service-card">
+  
+                  <a href="#" class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                      <img src="./assets/imagens/imgs-div/Novidades03.png" width="285" height="336" loading="lazy" alt="Drinks"
+                        class="img-cover">
+                    </figure>
+                  </a>
+  
+                  <div class="card-content">
+  
+                    <h3 class="title-4 card-title">
+                      <a href="#">Destilados</a>
+                    </h3>
+  
+                    <a href="#" class="btn-text hover-underline label-2">Ver Mais</a>
+  
+                  </div>
+  
+                </div>
+              </li>
+  
+            </ul>
+            <!--
+            imagen rabiscos uva
+            -->
+            <img src="./assets/images/uva-002-sfundo.png" width="246" height="412" loading="lazy" alt="shape"
+              class="shape shape-1 move-anim">
+            <img src="./assets/images/uva-003-sfundo.png" width="343" height="345" loading="lazy" alt="shape"
+              class="shape shape-2 move-anim">
+  
+          </div>
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - #ABOUT
+          sobre nos
+        -->
+  
+        <section class="section about text-center" aria-labelledby="about-label" id="about" >
+          <div class="container">
+  
+            <div class="about-content">
+  
+              <p class="label-2 section-subtitle" id="about-label" style="color: white;">Famalicão Cash</p>
+  
+              <h2 class="headline-1 section-title">Sobre Nós</h2>
+  
+              <p style="color: white;" class="section-text">
+                Batizada em 1978 com o nome " Macobel ", esta empresa passou por modernização e atualização estratégica.
+                O nome acima mencionado, foi a raiz de um trabalho de 45 anos, que ultrapassou todas as dificuldades 
+                de um mercado exigente, o que originou esta nova identidade renovada e refrescada nos olhos de nova geração.<br> <br>
+                
+                  Assim nasceu a " Famalicaocash ", e assim iremos crescer dia para dia um pouco mais. Para isso contamos com um dinamismo 
+                  ativo e agressivo de mercado que alia o equilíbrio entre a humildade do serviço e preço à arrogância de uma resposta ímpar.<br> <br>
+
+                  Um núcleo de vendedores / sales manager`s complementam agora esta empresa, de forma a estarmos sempre 
+                  perto e de prestar um apoio mais direto e confiante a quem requer os nossos serviços. <br> <br>
+
+                  Um especial agradecimento a todos aqueles que optaram e continuam a optar pelo nosso
+                   serviço e todo o conjunto de pessoas que dão continuidade a este trabalho.
+
+                  
+              </p>
+  
+            </div>
+  
+            <figure class="about-banner">
+  
+              <img src="./assets/imagens/imgs-div/sobre-nos01.jpg" width="570" height="570" loading="lazy" alt="about banner"
+                class="w-100" data-parallax-item data-parallax-speed="1">
+  
+              <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
+                <img src="./assets/imagens/imgs-div/sobre-nos02.jpeg" width="285" height="285" loading="lazy" alt=""
+                  class="w-100">
+              </div>
+  
+              <div class="abs-img abs-img-2 has-before">
+                <img src="./assets/images/logo-002.png" width="178" height="134" loading="lazy" alt="">
+              </div>
+  
+            </figure>
+  
+            <img src="./assets/images/uva-002-sfundo.png" width="197" height="194" loading="lazy" alt="" class="shape">
+  
+          </div>
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - provas locais
+          
+        -->
+  
+        <section class="special-dish text-center" aria-labelledby="dish-label" id="provas">
+  
+          <div class="special-dish-banner" >
+            <img src="./assets/images/body01.png" width="940" height="900" loading="lazy" alt="special dish" 
+              class="img-cover">
+          </div>
+  
+          <div class="special-dish-content bg-black-10">
+            <div class="container">
+  
+              
+  
+              <p class="section-subtitle label-2" style="color: white;">Famalicão Cash</p>
+  
+              <h2 class="headline-1 section-title" style="color: white;">Sala de Provas</h2>
+  
+              <p class="section-text">
+               Promovemos mensalmente degustações de vinhos com produtores conceituados de forma a formar e dar a conhecer aos nossos clientes novos produtos. <br>
+               <br>
+               Formamos de forma ao consumidor/cliente servir e degustar os diferentes tipos de vinhos e outras bebidas da melhor forma, 
+               para que tenham experiências incriveis com os nossos produtos.
+              </p>
+  
+              
+  
+              
+            </div>
+          </div>
+  
+          <img src="./assets/images/uva-002-sfundo.png" width="179" height="359" loading="lazy" alt="" class="shape shape-1">
+  
+          <img src="./assets/images/uva-003-sfundo.png" width="351" height="462" loading="lazy" alt="" class="shape shape-2">
+  
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - #MENU
+        -->
+  
+        <section class="section menu" aria-label="menu-label" id="menu">
+          <div class="container">
+  
+            <p class="section-subtitle text-center label-2" style="color: hsl(359, 20%, 66%);">Famalicão Cash</p>
+  
+            <h2 class="headline-1 section-title text-center" style="color: white;" >Colaboradores</h2>
+  
+            <ul class="grid-list">
+              <style>
+                .phone-link {
+              text-decoration: none;
+              color: white;
+              transition: color 0.2s ease; /* adiciona efeito de transição */
+              }
+
+              .phone-link:hover {
+              color: var(--Vinho-Claro) /* muda a cor para branco quando o mouse está por cima */
+              }
+
+             
+              @media only screen and (max-width: 575px) {
+              [id="img-colaborador"] {
+                height: 100px;
+                width: 100px;
+              }
+            }
+              </style>  
+  
+              <li>
+                <div class="menu-card hover:card">
+  
+                  <figure class="card-banner img-holder" style="--width: 110; --height: 110;">
+                    <img src="./assets/imagens/imgs-div/pessoa.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                      class="img-cover" style="height: 150px; height: 150px;" id="img-colaborador">
+                  </figure>
+  
+                  <div>
+  
+                    <div class="title-wrapper">
+                      <h3 class="title-3" style="color: white;">
+                        <a href="mailto:miguel.ribeiro@famalicaocash.com" class="card-title email-link">Miguel Ribeiro</a>
+                      </h3>
+                    </div>
+  
+                    <p class="card-text label-1" style="color: black;">
+                      <span style="color: white;">Rotas:</span>
+                      Guimarães, Famalicão, Vila do Conde, <br>
+                      Mindelo, Vila-Chã
+                      <a href="tel:913526475" class="phone-link">913 526 475</a>
+                    </p>
+                    
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="menu-card hover:card">
+  
+                  <figure class="card-banner img-holder" style="--width: 110; --height: 110;" id="img-colaborador">
+                    <img src="./assets/imagens/imgs-div/pessoa.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                      class="img-cover" style="height: 150px; height: 150px;">
+                  </figure>
+  
+                  <div>
+  
+                    <div class="title-wrapper" >
+                      <h3 class="title-3" style="color: white;">
+                        <a href="mailto:rui.pereira@famalicaocash.com" class="card-title email-link">Rui Pereira</a>
+                      </h3>
+                    </div>
+  
+                    <p class="card-text label-1" style="color: black;">
+                      <span style="color: white;">Rotas:</span>
+                      Grande distribuição <br>
+                       Hipermercados e revenda
+                      <a href="tel:912097590" class="phone-link">912 097 590</a>
+                    </p>
+                    
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="menu-card hover:card">
+  
+                  <figure class="card-banner img-holder" style="--width: 110; --height: 110;" id="img-colaborador">
+                    <img src="./assets/imagens/imgs-div/pessoa.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                      class="img-cover" style="height: 150px; height: 150px;">
+                  </figure>
+  
+                  <div>
+  
+                    <div class="title-wrapper">
+                      <h3 class="title-3" style="color: white;">
+                        <a href="mailto:jose.marques@famalicaocash.com" class="card-title email-link">José Marques</a>
+                      </h3>
+                    </div>
+  
+                    <p class="card-text label-1" style="color: black;">
+                      <span style="color: white;">Rotas:</span>
+                      Apúlia, Esposende, Viana do Castelo,<br>
+                      Monção, Valença, Melgaço, Ponte da Barca,
+                      <a href="tel:913 958 754" class="phone-link">913 958 754</a>
+                    </p>
+                    
+                  </div>
+  
+                </div>
+              </li>
+  
+              <li>
+                <div class="menu-card hover:card">
+  
+                  <figure class="card-banner img-holder" style="--width: 110; --height: 110;" id="img-colaborador">
+                    <img src="./assets/imagens/imgs-div/pessoa.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                      class="img-cover" style="height: 150px; height: 150px;">
+                  </figure>
+  
+                  <div>
+  
+                    <div class="title-wrapper">
+                      <h3 class="title-3" style="color: white;">
+                        <a href="mailto:filipe.fontao@famalicaocash.com" class="card-title email-link">Filipe Fontão</a>
+                      </h3>
+                    </div>
+  
+                    <p class="card-text label-1" style="color: black;">
+                      <span style="color: white;">Rotas:</span>
+                      Guimarães, Famalicão,<br> Trofa, Vizela.
+                      <a href="tel:916 332 227" class="phone-link">916 332 227</a>
+                    </p>
+                    
+                  </div>
+  
+                </div>
+              </li>
+
+              <li>
+                <div class="menu-card hover:card">
+  
+                  <figure class="card-banner img-holder" style="--width: 110; --height: 110;" id="img-colaborador">
+                    <img src="./assets/imagens/imgs-div/pessoa.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                      class="img-cover" style="height: 150px; height: 150px;">
+                  </figure>
+  
+                  <div>
+  
+                    <div class="title-wrapper">
+                      <h3 class="title-3" style="color: white;">
+                        <a href="mailto:vania@famalicaocash.com" class="card-title email-link">Vania</a>
+                      </h3>
+                    </div>
+  
+                    <p class="card-text label-1" style="color: black;">
+                      <span style="color: white;">Rotas:</span>
+                      Braga, Vila Verde, Ponte de Lima, <br>
+                       Barcelos, Famalicão
+                      <a href="tel:919 696 711" class="phone-link">919 696 711</a>
+                    </p>
+                    
+                  </div>
+  
+                </div>
+              </li>
+
+            
+  
+            </ul>
+  
+            
+  
+            
+  
+            <img src="./assets/images/uva-003-sfundo.png" width="921" height="1036" loading="lazy" alt="shape"
+              class="shape shape-2 move-anim">
+            <img src="./assets/images/uva-002-sfundo.png" width="343" height="345" loading="lazy" alt="shape"
+              class="shape shape-3 move-anim">
+  
+          </div>
+          <style>
+            @media (max-width: 575px){
+             
+
+              
+            }
+          </style>
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - #TESTIMONIALS
+        -->
+  
+  
+  
+        <!-- 
+          - #RESERVATION
+        -->
+  
+        <!-- 
+          - #FEATURES
+        -->
+  
+        <section class="section features text-center" aria-label="features" style="background-color: var(--Vinho-Claro);" id="localizaçao">
+          <div class="container" >
+  
+            <p class="section-subtitle label-2" style="color: white;">Famalicão Cash</p>
+  
+            <h2 class="headline-1 section-title" style="color: white;">Localizações</h2>
+  
+            <ul class="grid-list">
+              
+              <li class="feature-item">
+                <div class="feature-card">
+  
+                  <div class="card-icon">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d23930.068856204784!2d-8.510739!3d41.43361000000001!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDI2JzAxLjAiTiA4wrAzMCczOC43Ilc!5e0!3m2!1spt-PT!2sus!4v1719241372944!5m2!1spt-PT!2sus"  width="200" height="200" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" loading="lazy" alt="icon"></iframe>
+                  </div>
+  
+                  <h3 class="title-2 card-title">FAMALICAO CASH</h3>
+  
+                  <p class="label-1 card-text">
+                    Av. Santiago de Gavião, 
+                    2661 Gavião
+                    Vila Nova de Famalicão
+                    
+                    Tel: 252 313 479
+                    «Chamada para a rede fixa nacional»
+                    Email: geral@famalicaocash.com</p>
+  
+                </div>
+              </li>
+              
+              <li class="feature-item">
+                <div class="feature-card">
+  
+                  <div class="card-icon">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d23940.316014603013!2d-8.520472!3d41.405806!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDI0JzIwLjkiTiA4wrAzMScxMy43Ilc!5e0!3m2!1spt-PT!2sus!4v1719241653195!5m2!1spt-PT!2sus" width="200" height="200" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" loading="lazy" alt="icon"></iframe>
+                  </div>
+  
+                  <h3 class="title-2 card-title">LOJA 1: FAMALICÃO</h3>
+  
+                  <p class="label-1 card-text">
+                    Rua Luís Barroso, Loja nrº 7
+                    4760-123
+                     Vila Nova de Famalicão
+                    
+                    Tel: 252 318 824
+                    «Chamada para a rede fixa nacional»
+                    Email: famalicao@famalicaocash.com</p>
+  
+                </div>
+              </li>
+
+              <li class="feature-item">
+                <div class="feature-card">
+  
+                  <div class="card-icon">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d23964.219209421313!2d-8.474139!3d41.340889!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDIwJzI3LjIiTiA4wrAyOCcyNi45Ilc!5e0!3m2!1spt-PT!2sus!4v1719241689193!5m2!1spt-PT!2sus" width="200" height="200" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" loading="lazy" alt="icon"></iframe>
+                  </div>
+  
+                  <h3 class="title-2 card-title">LOJA 2: SANTO TIRSO</h3>
+  
+                  <p class="label-1 card-text">
+                    Rua do Bombeiro Voluntário nrº 57
+                    4780-413
+                    Santo Tirso
+                    
+                    Tel: 252 851 942
+                    «Chamada para a rede fixa nacional»
+                    Email: santotirso@famalicaocash.com
+                    
+                    </p>
+  
+                </div>
+              </li>
+  
+
+              <li class="feature-item">
+                <div class="feature-card">
+  
+                  <div class="card-icon">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d23894.080027495398!2d-8.616083!3d41.531139!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDMxJzUyLjEiTiA4wrAzNic1Ny45Ilc!5e0!3m2!1spt-PT!2sus!4v1719241706159!5m2!1spt-PT!2sus" width="200" height="200" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" loading="lazy" alt="icon"></iframe>
+                  </div>
+  
+                  <h3 class="title-2 card-title">LOJA 3: BARCELOS</h3>
+  
+                  <p class="label-1 card-text">
+                    Rua José António P. Machado nrº 341
+                    4750-309
+                    Barcelos
+                    
+                    Tel: 253 814 154
+                    «Chamada para a rede fixa nacional»
+                    Email: barcelos@famalicaocash.com</p>
+  
+                </div>
+              </li>
+  
+              
+             
+  
+            </ul>
+  
+            <img src="./assets/images/uva009-removebg-preview.png" width="208" height="178" loading="lazy" alt="shape"
+              class="shape shape-1">
+  
+            <img src="./assets/images/uva009-removebg-preview.png" width="120" height="115" loading="lazy" alt="shape"
+              class="shape shape-2">
+  
+          </div>
+        </section>
+  
+  
+  
+  
+  
+        <!-- 
+          - #EVENT
+        -->
+  
+        <section class="section event bg-black-10" aria-label="event" id="produtores" style=" align-items: center; background-color: var(--Vinho-Médio);">
+           <!--
+                  imagens do carrosel
+                  #produtores
+                  -->
+          <div class="container " style="width: 500px; height: 600px; align-items: center;" id="centralizar-pequena-tela">
+  
+            <p class="section-subtitle label-2 text-center" style="color: white;" >Famalicão cash</p>
+  
+            <h2 class="section-title headline-1 text-center" style="color: white;">Produtores</h2>
+            
+            <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <div id="carrosel-02" style="width: 300%; transform: translateX(-480px);">
+              <div class="container2">
+    
+                <section class="customer-logos slider"  >
+                 
+                  
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor.png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (1).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (2).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (3).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (4).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (5).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (6).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (7).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (8).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (9).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (10).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (11).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor(12).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (13).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (14).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (15).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (16).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (17).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (18).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (19).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (20).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (21).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (22).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (23).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (24).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (25).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (26).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (27).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (28).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (29).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (30).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (31).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (32).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (33).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (33).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (34).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (35).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (36).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (37).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (38).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (39).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (40).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (41).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (42).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (43).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (44).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (45).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (46).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (47).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (48).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (49).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (50).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (51).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (52).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (53).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (54).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (55).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (56).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (57).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (58).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (59).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (60).png" style="width: 120px; align-items: center; "></div>
+
+                   <div class="slide"><img src="./assets/imagens/produtores/produtor (61).png" style="width: 120px; align-items: center;" ></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (62).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (63).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (64).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (65).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (66).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (67).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (68).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (69).png" style="width: 120px; align-items: center; "></div>
+                   <div class="slide"><img src="./assets/imagens/produtores/Produtor (70).png" style="width: 120px; align-items: center; "></div>
+                   
+                </section>
+           
+                <script>
+                 $(document).ready(function(){
+               $('.customer-logos').slick({
+                   slidesToShow: 6,
+                   slidesToScroll: 1,
+                   autoplay: true,
+                   autoplaySpeed: 1500,
+                   arrows: false,
+                   dots: false,
+                   pauseOnHover: false,
+                   responsive: [{
+                       breakpoint: 768,
+                       settings: {
+                           slidesToShow: 4
+                       }
+                   }, {
+                       breakpoint: 520,
+                       settings: {
+                           slidesToShow: 3
+                       }
+                   }]
+               });
+           });
+                </script>
+                <style>
+                
+               .customer-logos{
+                 top: 50px;
+                 margin: 0 200px; 
+                 align-items: center;
+               }
+                
+           /* Slider */
+           
+          
+           .slick-slide {
+               margin: 0px 20px;
+           }
+           
+           .slick-slide img {
+               width: 100%;
+           }
+           
+           .slick-slider
+           {
+               position: relative;
+               display: block;
+               box-sizing: border-box;
+               -webkit-user-select: none;
+               -moz-user-select: none;
+               -ms-user-select: none;
+                       user-select: none;
+               -webkit-touch-callout: none;
+               -khtml-user-select: none;
+               -ms-touch-action: pan-y;
+                   touch-action: pan-y;
+               -webkit-tap-highlight-color: transparent;
+           }
+           
+           .slick-list
+           {
+               position: relative;
+               display: block;
+               overflow: hidden;
+               margin: 0;
+               padding: 0;
+           }
+           .slick-list:focus
+           {
+               outline: none;
+           }
+           .slick-list.dragging
+           {
+               cursor: pointer;
+               cursor: hand;
+           }
+           
+           .slick-slider .slick-track,
+           .slick-slider .slick-list
+           {
+               -webkit-transform: translate3d(0, 0, 0);
+                  -moz-transform: translate3d(0, 0, 0);
+                   -ms-transform: translate3d(0, 0, 0);
+                    -o-transform: translate3d(0, 0, 0);
+                       transform: translate3d(0, 0, 0);
+           }
+           
+           .slick-track
+           {
+               position: relative;
+               top: 0;
+               left: 0;
+               display: block;
+           }
+           .slick-track:before,
+           .slick-track:after
+           {
+               display: table;
+               content: '';
+           }
+           .slick-track:after
+           {
+               clear: both;
+           }
+           .slick-loading .slick-track
+           {
+               visibility: hidden;
+           }
+           
+           .slick-slide
+           {
+               display: none;
+               float: left;
+               height: 100%;
+               min-height: 1px;
+           }
+           [dir='rtl'] .slick-slide
+           {
+               float: right;
+           }
+           .slick-slide img
+           {
+               display: block;
+           }
+           .slick-slide.slick-loading img
+           {
+               display: none;
+           }
+           .slick-slide.dragging img
+           {
+               pointer-events: none;
+           }
+           .slick-initialized .slick-slide
+           {
+               display: block;
+           }
+           .slick-loading .slick-slide
+           {
+               visibility: hidden;
+           }
+           .slick-vertical .slick-slide
+           {
+               display: block;
+               height: auto;
+               border: 1px solid transparent;
+           }
+           .slick-arrow.slick-hidden {
+               display: none;
+           }
+                </style>
+                       
+           
+                      
+                       <a href="https://loja.winecash.pt" class="btn btn-primary centralizar-pequena-tela" style="top: 90px;">
+                        <!-- conteúdo -->
+                      
+                         <span class="text text-1">Loja Online</span>
+             
+                         <span class="text text-2" aria-hidden="true">Loja Online</span>
+                       </a>
+                       
+                       <style>
+                         
+                     @media (max-width: 1080px) {
+                      
+                    .centralizar-pequena-tela {
+                      transform: translateX(18px);
+                    }
+                    #centralizar-pequena-tela {
+
+                       justify-content: center;
+                       align-items: center;
+                       transform: translateX(18px);
+                     }
+                     .customer-logos{
+                       top: 50px;
+                       margin: 0 50px; 
+                       align-items: center;
+                       transform: translateX(-135px);
+                     }
+                        }
+                        @media (max-width: 575px) {
+                    .centralizar-pequena-tela {
+                      transform: translateX(14px);
+                    }
+                    #centralizar-pequena-tela {
+
+                       justify-content: center;
+                       align-items: center;
+                       transform: translateX(-38px);
+                     }
+                     .customer-logos{
+                       top: 50px;
+                       margin: 0 500px; 
+                       align-items: center;
+                       transform: translateX(-4px);
+                     }
+
+                    }
+                        
+
+                            </style>
+
+                     </div>
+            </div>
+  
+        </section>
+  
+      </article>
+    </main>
+  
+  
+  
+  
+  
+    <!-- 
+      - #FOOTER
+      inscrições
+    -->
+  
+    <footer class="footer section has-bg-image text-center"
+      style="  background-image: url('./assets/images/uva01-escuro.png')" id="inscriçoes">
+      <div class="container" id="container-baixo">
+  
+        <div class="footer-top grid-list">
+  
+          <div class="footer-brand has-before has-after">
+  
+            <a href="#" class="logo">
+              <img src="./assets/images/imgs/Logo.png" width="260" height="50" loading="lazy" >
+            </a>
+  
+            <address class="body-4">
+              Rua da industria nº207 <br>
+              4760-003 Gavião <br>
+              V.N.Famalicão
+            </address>
+  
+            <a href="geral@famalicaocash.com" class="body-4 contact-link">geral@famalicaocash.com</a>
+  
+            <a href="tel:+252313479" class="body-4 contact-link">Contacto : +252 313 479</a>
+  
+            <p class="body-4">
+              Segunda a Sexta: 8.30/13.00 <br>
+               e das 14.30/19.00 Sábado: 09:00/13:00
+            </p>
+  
+            <div class="wrapper" >
+              <div class="separator"></div>
+              <div class="separator"></div>
+              <div class="separator"></div>
+            </div>
+  
+            <p class="title-1"> </p>
+  
+            <p class="label-1">
+               <span class="span"></span>
+            </p>
+  
+            <form action="" class="input-wrapper">
+              <div class="icon-wrapper">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+  
+                <input type="email" name="email_address" placeholder="Email" autocomplete="off" class="input-field">
+              </div>
+  
+              <button type="submit" class="btn btn-secondary">
+                <span class="text text-1">Se-inscrever</span>
+  
+                <span class="text text-2" aria-hidden="true">Se-inscrever</span>
+              </button>
+            </form>
+  
+          </div>
+  
+          <ul class="footer-list" style="display: none;">
+  
+            <div class="middle" >
+              <a class="btn-redes" href="https://www.facebook.com/famalicaocash/?locale=pt_PT">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="btn-redes" href="https://loja.winecash.pt">
+                <i class="fas fa-wine-bottle"></i>
+              </a>
+             
+              <a class="btn-redes" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiUlI_7g_SGAxWg7QIHHXX3Nq4QFnoECEoQAQ&url=https%3A%2F%2Fwww.facebook.com%2Ffamalicaocash%2F%3Flocale%3Dpt_PT&usg=AOvVaw0LenT4bHH-IOOl9xcVWSq2&opi=89978449">
+                <i class="fas fa-map-marker-alt"></i>
+              </a>
+              <a class="btn-redes" href="https://www.youtube.com/watch?v=Lo91Y3qDM14">
+                <i class="fab fa-youtube"></i>
+              </a>
+            <!--*********************-->
+            <style>
+              
+                  /*  
+              .middle{
+                position: absolute;
+                top: 190px;
+                left: 320px;
+                transform: translateX(-50%);
+                width: 100%;
+                text-align: center;
+                display: none;
+                
+               
+              }
+              .middle2{
+                position: absolute;
+                top: 300px;
+                left: -320px;
+                transform: translateX(50%);
+                width: 100%;
+                text-align: center;
+                
+               
+              }
+              
+              .btn-redes{
+                display: inline-block; /* mudar para inline-block para telas menores que 575px 
+                margin: 10px auto; 
+                width: 90px;
+                height: 90px;
+                background: var( --Vinho-Claro);
+                margin-bottom: 20px;  
+                border-radius: 30%;
+                box-shadow: 0 5px 15px -5px #00000070;
+                color:  var( --Vinho-profundo);
+                overflow: hidden;
+                position: relative;
+              }
+              
+              .btn-redes i{
+                line-height: 90px;
+                font-size: 26px;
+                transition: 0.2s linear;
+              }
+              
+              .btn-redes:hover i{
+                transform: scale(1.3);
+                color: #f1f1f1;
+              }
+              
+              .btn-redes::before{
+                content: "";
+                position: absolute;
+                width: 120%;
+                height: 120%;
+                background:var( --Vinho-profundo);
+                transform: rotate(45deg);
+                left: -110%;
+                top: 90%;
+              }
+              
+              .btn-redes:hover::before{
+                animation: aaa 0.7s 1;
+                top: -10%;
+                left: -10%;
+              }
+              
+              @keyframes aaa {
+                0%{
+                  left: -110%;
+                  top: 90%;
+                }50%{
+                  left: 10%;
+                  top: -30%;
+                }100%{
+                  top: -10%;
+                  left: -10%;
+                }
+              }*/
+              
+              @media (max-width: 575px) 
+              {
+                .btn-redes 
+                {
+                  display: inline-block; 
+                  margin: 10px auto; 
+                  
+
+                }
+                [id="livro-reclamaçao"]
+                {
+                  transform: translateX(-380px);
+                }
+                .middle
+                {
+                  display: none;
+                }
+              }
+                /*
+              @media (max-width: 770px) 
+              {
+                .footer-brand {
+                grid-column: 1 / 3;
+                order: 1;
+                padding-block: 100px;
+                transform: translate(150px, -50px);
+                border: 10px;
+                width: 500px;
+              }
+                    .btn-redes{
+                    display: inline-block;
+                    margin: 10px auto; 
+                    width: 90px;
+                    height: 90px;
+                    background: var( --Vinho-Claro);
+                    margin-bottom: 20px; 
+                    border-radius: 30%;
+                    box-shadow: 0 5px 15px -5px #00000070;
+                    color:  var( --Vinho-profundo);
+                    overflow: hidden;
+                    position: relative;
+                    transform: translate(260px, 0px);
+                  }
+                [id="livro-reclamaçao"]
+                {
+                  transform: translateX(-210px);
+                }
+                .middle
+                {
+                  display: none;
+                }
+            }
+
+              */
+              
+            </style>
+
+
+          </div>
+          </ul>
+  
+          <ul class="footer-list" style="display: none;">
+  
+            <div class="middle1" style="transform: translateY(-10px);" id="middle1">
+              <a class="btn-redes" href="https://www.facebook.com/famalicaocash/?locale=pt_PT">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="btn-redes" href="https://loja.winecash.pt">
+                <i class="fas fa-wine-bottle"></i>
+              </a>
+             
+              <a class="btn-redes" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiUlI_7g_SGAxWg7QIHHXX3Nq4QFnoECEoQAQ&url=https%3A%2F%2Fwww.facebook.com%2Ffamalicaocash%2F%3Flocale%3Dpt_PT&usg=AOvVaw0LenT4bHH-IOOl9xcVWSq2&opi=89978449">
+                <i class="fas fa-map-marker-alt"></i>
+                
+              </a>
+              <a class="btn-redes" href="https://www.youtube.com/watch?v=Lo91Y3qDM14">
+                <i class="fab fa-youtube"></i>
+              </a>
+              
+          </ul>
+  
+        </div>
+        
+  
+        <div class="footer-bottom" style="align-items: center;">
+            <a href="https://www.livroreclamacoes.pt/Inicio/" id="livro-reclamaçao">
+              <img src="./assets/imagens/imgs-div/LRE_Theme.Logo_White.png" alt="" style="height: 50px; width: 250px; transform: translateX(180%);">
+            </a>
+            <br>
+
+          <p class="copyright" style="margin-top: 0px;" id="copiRy">
+            &copy; 2012 Famalicão Cash Online. Todos os direitos reservados. <a href="#"
+              target="_blank" class="link" style="color: rgb(177, 57, 57);"></a>
+          </p>
+  
+        </div>
+  
+      </div>
+    </footer>
+  
+  
+  
+  
+  
+    <!-- 
+      - #BACK TO TOP
+    -->
+  
+    <a href="index.html#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+
+    
+  
+  
+  
+  
+  
+    <!-- 
+      - custom js link
+    -->
+    <script src="./assets/js/script.js"></script>
+  
+    <!-- 
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  </body>
+</body>
+
+
+</html>
